@@ -1,0 +1,48 @@
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark navbar-fixed-top">
+  <div class="container">
+    <a class="navbar-brand" [routerLink]="['/home']">Bliżej nie okreslony portal !</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul *ngIf="checkUserLogIn()" class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/list']">List</a>
+        </li>
+        <li class="nav-item" >
+          <a class="nav-link" [routerLink]="['/messages']">Messages</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/members']"> Members </a>
+        </li>
+        
+      </ul>
+      <div *ngIf="checkUserLogIn()" class="nav-item mr-1">
+        <div class="nav-item btn-group" dropdown>
+          <button id="button-basic" dropdownToggle type="button" class="btn btn-primary dropdown-toggle"
+                  aria-controls="dropdown-basic">
+                  Welcome {{authService.decodedToken?.unique_name}} <span class="caret"></span>
+          </button>
+          <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu"
+              role="menu" aria-labelledby="button-basic">
+            <li role="menuitem"><a class="dropdown-item" (click)="logout()">Logout</a></li>
+            <li role="menuitem"><a class="dropdown-item" (click)="editProfile()" >Edit</a></li>
+            <li role="menuitem"><a class="dropdown-item" href="#">Something else here</a></li>
+            <li class="divider dropdown-divider"></li>
+            <li role="menuitem"><a class="dropdown-item" href="#">Separated link</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <form *ngIf="!checkUserLogIn()" #loginForm="ngForm" class="form-inline my-2 ">
+      <input class="form-control mr-sm-2" type="text" [(ngModel)]="user.username" name="login" placeholder="Login">
+      <input class="form-control mr-sm-2" type="password" [(ngModel)]="user.password" name="password"
+        placeholder="Password">
+      <button class="btn btn-outline-success my-2 my-sm-0" (click)="login()" type="submit">Login</button>
+    </form>
+  </div>
+</nav>
+<div class="breadcrumb mb-5"></div>

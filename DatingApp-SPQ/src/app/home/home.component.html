@@ -1,0 +1,30 @@
+<div class="container mt-5">
+  <div *ngIf="!registerToggle" style="text-align: center">
+    <h1>Find your match</h1>
+    <p class="lead">Come on in to view your matches... All you need to do is sign up!</p>
+    <div class="text-center">
+      <button class="btn btn-primary btn-lg mr-1" required (click)="changeRegisterToggle()">Register</button>
+      <button class="btn btn-info btn-lg" required>Learn more</button>
+    </div>
+  </div>
+
+  <div *ngIf="registerToggle" class="container">
+    <div class="row justify-content-center">
+      <div class="col-4">
+        <app-register-home 
+          (closeRegistration)="changeRegisterToggle()">
+        </app-register-home>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="learnMoreToggle" class="container">
+    <div class="row justify-content-center">
+      <div class="col-4">
+        <app-learn-more
+          (goBack)="changeLearnMoreToggle()">
+        </app-learn-more>
+      </div>
+    </div>
+  </div>
+</div>
