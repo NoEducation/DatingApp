@@ -71,11 +71,16 @@ namespace Dating.Controllers
             throw new System.Exception("Something bad happaned inside User controller");
         }
 
+        /// <summary>
+        /// Just dumpy changer for git purpuse
+        /// </summary>
+        /// <returns></returns>
         [HttpGet("DownloadAsPdf")]
         public async Task<IActionResult> DownloadAsPdf()
         {
             var file = await _userPdfGenerator.GeneratePfdFile();
             return File(file.FileBytes, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", file.Name);
+
         }
 
     }
