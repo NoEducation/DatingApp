@@ -1,2 +1,2 @@
-# DatingApp ![.NET Core](https://github.com/NoEducation/DatingApp/workflows/.NET%20Core/badge.svg?branch=master)
+# DatingApp ![.Build](https://github.com/NoEducation/DatingApp/workflows/.Build/badge.svg)
 Its just testing app from udemy course,
