@@ -1,4 +1,4 @@
-name: .NET Core
+name: .Build
 
 on: 
   push:
@@ -18,3 +18,12 @@ jobs:
         dotnet-version: 2.2.108
     - name: Build with dotnet
       run: dotnet build --configuration Release
+
+    - name: Node $
+      uses: actions/setup-node@v1
+      with:
+        node-version: $
+    - name: npm install and npm run build
+      run: |
+          npm ci
+          npm run build:ci
