@@ -31,15 +31,22 @@ export class RegisterHomeComponent implements OnInit {
   private createRegisterForm(){
     this.registerForm = this.formBuilder.group({
       "username" : ['', Validators.compose([Validators.required,Validators.maxLength(10),Validators.minLength(2)])],
+      "gender" : ['male'],
+      "knownAs" : ['', Validators.required],
+      "dateOfBirth" : [null, Validators.required],
+      "city" : ['', Validators.required],
+      "country" : ['', Validators.required],
       "password" : ['', [Validators.maxLength(10),Validators.required]],
       "confirmPassword" : ['',[Validators.maxLength(10),Validators.required]]
-    }, this.validatorPasswordsMatch)
+    }, {validators : this.validatorPasswordsMatch})
   }
 
   close(): void{
     this.closeRegistration.emit();
   }
   registerNewUser() : void{
+
+
     // this.authService.register(this.user).subscribe(response =>{
     //   this.alertify.success('Success ! User created')
     //   this.closeRegistration.emit();
@@ -47,7 +54,7 @@ export class RegisterHomeComponent implements OnInit {
   };
 
   private validatorPasswordsMatch( group : FormGroup){
-    return group.get("username").value === group.get("password") ? null : {  "mismach" : true}
+    return group.get("confirmPassword").value === group.get("password").value ? null : { "mismach" : true}
   }
 
 }
