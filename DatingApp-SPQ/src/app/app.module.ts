@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { SidebarTopComponent } from './layout/sidebar-top/sidebar-top.component';
-import { FormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AuthService } from './core/services/auth.service';
 import { HomeComponent } from './home/home.component';
 import { RegisterHomeComponent } from './home/register-home/register-home.component';
@@ -54,6 +54,7 @@ export function tokenGetter() : string{
       HttpClientModule,
       FormsModule,
       BsDropdownModule,
+      ReactiveFormsModule,
       TabsModule,
       TabsModule.forRoot(), 
       RouterModule.forRoot(appRoutes),

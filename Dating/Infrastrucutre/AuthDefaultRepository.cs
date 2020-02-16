@@ -18,7 +18,9 @@ namespace Dating.Infrastrucutre
 
         public async Task<UserModel> Login(string username, string password)
         {
-            var user = await _contex.Users.SingleOrDefaultAsync(x => x.Name == username);
+            var user = await _contex.Users.Include(x => x.Photos)
+                .SingleOrDefaultAsync(x => x.Name == username);
+
             if (user is null)
                 return null;
 

@@ -12,12 +12,14 @@ import { Router } from '@angular/router';
 export class SidebarTopComponent implements OnInit {
 
   user: UserLogin = new UserLogin();
+  photoUrl : string;
 
   constructor(public readonly authService: AuthService,
     private readonly alertify : AlertiflyService,
     private readonly router : Router ) { }
 
   ngOnInit() {
+    this.authService.currentPhotoUrl.subscribe(photoUrl => this.photoUrl = photoUrl);
   }
 
   login(): void {
@@ -39,7 +41,10 @@ export class SidebarTopComponent implements OnInit {
 
   logout(): void {
     localStorage.removeItem('token');
+    localStorage.removeItem('user');
     this.alertify.message('logged out');
+    this.authService.currentUser = null;
+    this.authService.decodedToken = null;
     this.router.navigateByUrl("/messages");
   }
 }

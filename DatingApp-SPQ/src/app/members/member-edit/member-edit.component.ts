@@ -20,7 +20,8 @@ export class MemberEditComponent implements OnInit {
     }
   }
   user : User;
-
+  photoUrl : string;
+  
   constructor(private route: ActivatedRoute,
    private readonly userService : UserService,
    private readonly authService : AuthService,
@@ -29,6 +30,7 @@ export class MemberEditComponent implements OnInit {
   ngOnInit() {
     this.route.data.subscribe( data =>
       this.user = data['user'])
+    this.authService.currentPhotoUrl.subscribe(x => this.photoUrl = x)
   }
 
   updateUser() : void {

@@ -1,4 +1,5 @@
-﻿using Dating.Common.Configurations;
+﻿using AutoMapper;
+using Dating.Common.Configurations;
 using Dating.DTO;
 using Dating.Infrastrucutre;
 using Dating.Models;
@@ -23,13 +24,16 @@ namespace Dating.Controllers
         private readonly IAuthRepository _authRepository;
         private readonly ILogger<UserController> _logger;
         private readonly TokenConfiguration _configuraiton;
+        private readonly IMapper _mapper;
 
         public AuthController(IAuthRepository authRepository, ILogger<UserController> logger,
-            TokenConfiguration configuraiton)
+            TokenConfiguration configuraiton,
+            IMapper mapper)
         {
             _authRepository = authRepository;
             _logger = logger;
             _configuraiton = configuraiton;
+            _mapper = mapper;
         }
 
         [Route("Register")]
@@ -87,9 +91,12 @@ namespace Dating.Controllers
 
             var token = tokenHandler.CreateToken(tokenDescriptor);
 
+            var userToReturn = _mapper.Map<UserForListDto>(userFromRepo);
+
             return Ok(new
             {
-                token = tokenHandler.WriteToken(token)
+                token = tokenHandler.WriteToken(token),
+                user = userToReturn
             });
         }
     }
