@@ -47,7 +47,7 @@ export function tokenGetter() : string{
       MemberDetailsComponent,
       LearnMoreComponent,
       MemberEditComponent,
-      PhotoEditingComponent
+      PhotoEditingComponent,
    ],
    imports: [
       BrowserModule,

@@ -1,15 +1,22 @@
-<form #userForm = "ngForm">
+<form [formGroup]="registerForm">
   <h2 class="text-center text-primary">Sign Up</h2>
   <hr>
   <div class="form-group">
-    <input type="text" class="form-control" [(ngModel)]="user.username" name="password" placeholder="Username">
+    <input type="text" class="form-control" formControlName="username" name="password" placeholder="Username">
   </div>
 
   <div class="form-group">
-    <input type="password" class="form-control" [(ngModel)]="user.password" name="Username" placeholder="Password">
+    <input type="password" class="form-control" formControlName="password" name="Username" placeholder="Password">
   </div>
+
+  <div class="form-group">
+    <input type="password" class="form-control" formControlName="confirmPassword" name="Username" placeholder="Confirm password">
+  </div>
+
   <div class="form-group text-center">
     <button class="btn btn-success" type="submit" (click)='registerNewUser()'>Register</button>
     <button class="btn btn-primary" type="button" (click)='close()'>Cancel</button>
   </div>
 </form>
+{{registerForm.status}}
+
