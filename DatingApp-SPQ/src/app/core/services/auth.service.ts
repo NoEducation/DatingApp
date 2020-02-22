@@ -6,6 +6,7 @@ import { Observable, BehaviorSubject } from 'rxjs';
 import {JwtHelperService} from '@auth0/angular-jwt'
 import { environment } from 'src/environments/environment';
 import { User } from '../models/user.model';
+import { UserToRegister } from '../models/user-to-register.model';
 
 
 @Injectable({
@@ -40,7 +41,7 @@ changeMemberPhoto(photoUrl : string){
       })
     );}
 
-    public register(user: UserLogin) : Observable<any> {
+    public register(user: UserToRegister) : Observable<any> {
       return this.http.post(this.url +  'Register', user);
     }
 

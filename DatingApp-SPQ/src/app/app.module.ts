@@ -29,6 +29,7 @@ import { MemberEditResolver } from './core/resolvers/member-edit.resolver';
 import { PreventUnsavedChanges } from './core/guards/prevent-unsaved-changes.guard';
 import { PhotoEditingComponent } from './members/member-edit/photo-editing/photo-editing.component';
 import { FileUploadModule } from 'ng2-file-upload';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 export function tokenGetter() : string{
    return localStorage.getItem('token');
@@ -61,6 +62,7 @@ export function tokenGetter() : string{
       BrowserAnimationsModule,
       BsDropdownModule.forRoot(),
       FileUploadModule,
+      
       JwtModule.forRoot(
          {
             config : {
@@ -71,7 +73,8 @@ export function tokenGetter() : string{
                blacklistedRoutes : [ 'localhost:5000/api/Auth']
             }
          }
-      )
+      ),
+      BsDatepickerModule.forRoot()
    ],
    providers: [
       AuthService,

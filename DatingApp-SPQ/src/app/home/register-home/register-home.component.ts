@@ -3,6 +3,8 @@ import { AuthService } from 'src/app/core/services/auth.service';
 import { UserLogin } from 'src/app/core/models/user-login.model';
 import { AlertiflyService } from 'src/app/core/services/alertifly.service';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { UserToRegister } from 'src/app/core/models/user-to-register.model';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -21,7 +23,8 @@ export class RegisterHomeComponent implements OnInit {
 
   constructor(private readonly authService : AuthService,
     private readonly alertify : AlertiflyService,
-    private readonly formBuilder : FormBuilder) {
+    private readonly formBuilder : FormBuilder,
+    private readonly router : Router) {
      }
 
   ngOnInit() {
@@ -45,12 +48,21 @@ export class RegisterHomeComponent implements OnInit {
     this.closeRegistration.emit();
   }
   registerNewUser() : void{
+    let userToRegister = new UserToRegister(
+        this.registerForm.get('username').value,
+        this.registerForm.get('password').value,
+        this.registerForm.get('confirmPassword').value,
+        this.registerForm.get('gender').value,
+        this.registerForm.get('dateOfBirth').value,
+        this.registerForm.get('city').value,
+        this.registerForm.get('knownAs').value,
 
+    )
 
-    // this.authService.register(this.user).subscribe(response =>{
-    //   this.alertify.success('Success ! User created')
-    //   this.closeRegistration.emit();
-    // }, error => this.alertify.error(error))
+    this.authService.register(userToRegister).subscribe(response => {
+      this.alertify.success("User has been registered");
+      this.router.navigateByUrl("home");
+    },error => this.alertify.error("Error occured during register"))
   };
 
   private validatorPasswordsMatch( group : FormGroup){
