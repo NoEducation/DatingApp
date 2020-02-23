@@ -43,6 +43,6 @@ jobs:
         PORT: 22
         KEY: ${{ secrets.forSSH }}
       with:
-        source: "./dist/DatingApp/DatingApp-SPQ"
+        source: "./dist/DatingApp/"
         target: "/home/user/domain.com/pwa/"
         strip_components: 3 # this is important
