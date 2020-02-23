@@ -43,6 +43,6 @@ jobs:
         PORT: 22
         KEY: ${{ secrets.forSSH }}
       with:
-        source: "./dist/your-angular-app-name/"
+        source: "./dist/DatingApp/DatingApp-SPQ"
         target: "/home/user/domain.com/pwa/"
         strip_components: 3 # this is important
