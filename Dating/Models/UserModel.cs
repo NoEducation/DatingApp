@@ -26,6 +26,12 @@ namespace Dating.Models
         public ICollection<PhotoModel> Photos { get; set; }
 
         #region Constructors
+
+        public UserModel()
+        {
+                
+        }
+
         public UserModel(int userId, string name, byte[] passwordHash, byte[] passwordSalt, string gender, DateTime dateOfBirth, string knowAs, DateTime created, DateTime lastActive, string introduction, string lookingFor, string interests, string city, string country, ICollection<PhotoModel> photos)
         {
             UserId = userId;
