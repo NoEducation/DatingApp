@@ -17,5 +17,23 @@ namespace Dating.Models
         public string PublicId { get; set; } 
         [ForeignKey("UserId")]
         public int UserId { get; set; }
+
+        #region Constructors
+
+        public PhotoModel(int id, string url, string description, DateTime dateAdded, bool isMain, UserModel user,
+            string publicId, int userId)
+        {
+            Id = id;
+            Url = url;
+            Description = description;
+            DateAdded = dateAdded;
+            IsMain = isMain;
+            User = user;
+            PublicId = publicId;
+            UserId = userId;
+        }
+
+        #endregion
+
     }
 }
