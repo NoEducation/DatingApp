@@ -6,7 +6,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Dating.Models
 {
     public class PhotoModel
-    {   
+    {
+
         [Key]
         public int Id { get; set; }
         public string Url { get; set; }
@@ -19,7 +20,9 @@ namespace Dating.Models
         public int UserId { get; set; }
 
         #region Constructors
-
+        public PhotoModel()
+        {
+        }
         public PhotoModel(int id, string url, string description, DateTime dateAdded, bool isMain, UserModel user,
             string publicId, int userId)
         {
