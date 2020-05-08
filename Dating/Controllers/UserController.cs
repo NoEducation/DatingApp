@@ -7,6 +7,8 @@ using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using Dating.Common.Extensions;
+using Dating.Common.Models;
 
 namespace Dating.Controllers
 {
@@ -34,10 +36,12 @@ namespace Dating.Controllers
 
 
         [HttpGet("AllUsers")]
-        public async Task<IActionResult> GetAllUsers()
+        public async Task<IActionResult> GetAllUsers([FromQuery] int pageNumber , [FromQuery] int pageSize)
         {
-            var result = await _datingRepository.GetUsers();
+            var result = await _datingRepository.GetUsers(new UserParams(){PageNumber =  pageNumber, PageSize = pageSize});
             var usersToReturn = _mapper.Map<IEnumerable<UserForListDto>>(result);
+
+            this.Response.AddPagination(result.CurrentPage, result.PageSize, result.TotalItems, result.TotalPages);
 
             return Ok(usersToReturn);
         } 
