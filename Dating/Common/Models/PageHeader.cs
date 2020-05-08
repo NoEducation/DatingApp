@@ -7,7 +7,7 @@ namespace Dating.Common.Models
 {
     public class PageHeader
     {
-        public int PageSize { get; set; }
+        public int TotalItems{ get; set; }
         public int TotalPages { get; set; }
         public int CurrentPage { get; set; }
         public int ItemsPerPage { get; set; }
@@ -19,9 +19,9 @@ namespace Dating.Common.Models
 
         }
 
-        public PageHeader(int pageSize, int totalPages, int currentPage, int itemsPerPage)
+        public PageHeader(int totalItems, int totalPages, int currentPage, int itemsPerPage)
         {
-            PageSize = pageSize;
+            TotalItems = totalItems;
             TotalPages = totalPages;
             CurrentPage = currentPage;
             ItemsPerPage = itemsPerPage;

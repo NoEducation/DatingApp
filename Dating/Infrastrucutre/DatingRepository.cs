@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Dating.Common.Models;
 using Dating.DAT;
+using Dating.DTO;
 using Dating.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -44,10 +46,11 @@ namespace Dating.Infrastrucutre
 
         }
 
-        public async Task<IEnumerable<UserModel>> GetUsers()
+        public async Task<PageList<UserModel>> GetUsers(UserParams userParams)
         {
-            return await _context.Users.Include(x => x.Photos)
-                                       .ToListAsync();
+            var items =  _context.Users.Include(x => x.Photos).AsQueryable();
+            return await PageList<UserModel>.CreateAsync(items, userParams.PageNumber, userParams.PageSize);
+
         }
 
         public async Task<bool> SaveAll()
