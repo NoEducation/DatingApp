@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.28803.452
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dating", "Dating\Dating.csproj", "{D58EC555-C8DA-43EB-9ED2-A9A06FBE4A90}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dating.Tests", "Dating.Tests\Dating.Tests.csproj", "{32BAD77B-45C4-4942-ACC7-28F34E5FA049}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatingTests", "DatingTests\DatingTests.csproj", "{50440B50-5B4E-49A8-99DB-D9DD331E5B95}"
 	ProjectSection(ProjectDependencies) = postProject
 		{D58EC555-C8DA-43EB-9ED2-A9A06FBE4A90} = {D58EC555-C8DA-43EB-9ED2-A9A06FBE4A90}
 	EndProjectSection
@@ -20,10 +20,10 @@ Global
 		{D58EC555-C8DA-43EB-9ED2-A9A06FBE4A90}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D58EC555-C8DA-43EB-9ED2-A9A06FBE4A90}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D58EC555-C8DA-43EB-9ED2-A9A06FBE4A90}.Release|Any CPU.Build.0 = Release|Any CPU
-		{32BAD77B-45C4-4942-ACC7-28F34E5FA049}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{32BAD77B-45C4-4942-ACC7-28F34E5FA049}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{32BAD77B-45C4-4942-ACC7-28F34E5FA049}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{32BAD77B-45C4-4942-ACC7-28F34E5FA049}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50440B50-5B4E-49A8-99DB-D9DD331E5B95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50440B50-5B4E-49A8-99DB-D9DD331E5B95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50440B50-5B4E-49A8-99DB-D9DD331E5B95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50440B50-5B4E-49A8-99DB-D9DD331E5B95}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

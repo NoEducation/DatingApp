@@ -45,7 +45,6 @@ namespace Dating
             services.AddScoped<IAuthRepository, AuthDefaultRepository>();
             services.AddScoped<IDatingRepository, DatingRepository>();
             services.AddScoped<IUsersPdfGenerator, UsersPdfGenerator>();
-
             services.AddSingleton<TokenConfiguration>(Configuration.GetTokenConfiguration());
             services.Configure<CloundinarySettings>(Configuration.GetSection("CloudinarySettings"));
 

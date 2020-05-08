@@ -55,7 +55,7 @@ namespace Dating.Controllers
         }
 
         [HttpPost("UpdateUser/{userId}")]
-        public async Task<IActionResult>  UpdateUser(int userId, UserForUdpateDto user ) 
+        public async Task<IActionResult> UpdateUser(int userId, UserForUdpateDto user ) 
         {   
 
             if (userId != int.Parse( User.FindFirst(ClaimTypes.NameIdentifier).Value))
@@ -71,10 +71,6 @@ namespace Dating.Controllers
             throw new System.Exception("Something bad happaned inside User controller");
         }
 
-        /// <summary>
-        /// Just dumpy changer for git purpuse
-        /// </summary>
-        /// <returns></returns>
         [HttpGet("DownloadAsPdf")]
         public async Task<IActionResult> DownloadAsPdf()
         {
