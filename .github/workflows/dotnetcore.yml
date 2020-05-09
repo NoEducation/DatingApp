@@ -1,4 +1,4 @@
-name: NET. and NPM builds
+name: NET. and Angular builds
 on: [push]
 
 jobs:
@@ -7,7 +7,7 @@ jobs:
       strategy:
         matrix:
           dotnet: [ '2.2.103' ]
-      name: Dotnet ${{ matrix.dotnet }} build
+      name: ASP.NET ${{ matrix.dotnet }} build
       steps:
         - uses: actions/checkout@master
         - name: Setup dotnet
@@ -17,7 +17,7 @@ jobs:
         - run: dotnet build DatingAPI/DatingAPI.csproj
         
   job_NPM:
-    name: NPM build
+    name: Angular build
     needs: job_NET
     runs-on: ubuntu-16.04
     steps:
@@ -26,4 +26,4 @@ jobs:
       with:
         node-version: '10.x'
     - run: npm install --prefix DatingClient/
-    - run: npm run build:prod --prefix DatingClient/
+    - run: npm run build --prefix DatingClient/
