@@ -16,6 +16,6 @@ jobs:
         uses: actions/setup-dotnet@v1
         with:
           dotnet-version: ${{ matrix.dotnet }}
-      - run: dotnet build DatingApp/DatingAPI.csproj
+      - run: dotnet build DatingAPI/DatingAPI.csproj
 
 
