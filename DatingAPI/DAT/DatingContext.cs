@@ -1,10 +1,7 @@
-﻿using Dating.Models;
+﻿using DatingAPI.Models;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-namespace Dating.DAT
+
+namespace DatingAPI.DAT
 {
     public class DatingContext : DbContext
     {

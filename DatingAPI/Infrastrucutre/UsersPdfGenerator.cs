@@ -1,12 +1,10 @@
-﻿using Dating.DTO;
-using Dating.Models;
-using System.Collections.Generic;
-using System.IO;
+﻿using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using DatingAPI.DTO;
+using DatingAPI.Models;
 
-
-namespace Dating.Infrastrucutre
+namespace DatingAPI.Infrastrucutre
 {
     public class UsersPdfGenerator : IUsersPdfGenerator
     {

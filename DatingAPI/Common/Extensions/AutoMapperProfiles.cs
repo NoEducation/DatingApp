@@ -1,10 +1,9 @@
-﻿using AutoMapper;
-using Dating.DTO;
-using Dating.Models;
-using System;
-using System.Linq;
+﻿using System.Linq;
+using AutoMapper;
+using DatingAPI.DTO;
+using DatingAPI.Models;
 
-namespace Dating.Common.Extensions
+namespace DatingAPI.Common.Extensions
 {
     public class AutoMapperProfiles : Profile
     {

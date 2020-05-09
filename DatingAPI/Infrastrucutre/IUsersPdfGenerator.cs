@@ -1,7 +1,7 @@
-﻿using Dating.DTO;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using DatingAPI.DTO;
 
-namespace Dating.Infrastrucutre
+namespace DatingAPI.Infrastrucutre
 {
     public interface IUsersPdfGenerator
     {

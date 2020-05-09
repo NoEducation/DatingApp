@@ -24,7 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Dating\Dating.csproj" />
+    <ProjectReference Include="..\DatingAPI\DatingAPI.csproj" />
   </ItemGroup>
 
 </Project>

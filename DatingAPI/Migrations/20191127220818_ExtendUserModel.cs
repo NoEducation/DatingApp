@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Dating.Migrations
+namespace DatingAPI.Migrations
 {
     public partial class ExtendUserModel : Migration
     {
