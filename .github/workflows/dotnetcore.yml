@@ -1,21 +1,29 @@
-name: .Build
-
-on: 
-  push:
+name: NET. and NPM builds
+on: [push]
 
 jobs:
-  build:
+  job_NET:
+      runs-on: ubuntu-16.04
+      strategy:
+        matrix:
+          dotnet: [ '2.2.103' ]
+      name: Dotnet ${{ matrix.dotnet }} build
+      steps:
+        - uses: actions/checkout@master
+        - name: Setup dotnet
+          uses: actions/setup-dotnet@v1
+          with:
+            dotnet-version: ${{ matrix.dotnet }}
+        - run: dotnet build DatingAPI/DatingAPI.csproj
+        
+  job_NPM:
+    name: NPM build
+    needs: job_NET
     runs-on: ubuntu-16.04
-    strategy:
-      matrix:
-        dotnet: [ '2.2.103' ]
-    name: Dotnet ${{ matrix.dotnet }} sample
     steps:
-      - uses: actions/checkout@master
-      - name: Setup dotnet
-        uses: actions/setup-dotnet@v1
-        with:
-          dotnet-version: ${{ matrix.dotnet }}
-      - run: dotnet build DatingAPI/DatingAPI.csproj
-
-
+    - uses: actions/checkout@master
+    - uses: actions/setup-node@master
+      with:
+        node-version: '10.x'
+    - run: npm install --prefix DatingClient/
+    - run: npm run build:prod --prefix DatingClient/
