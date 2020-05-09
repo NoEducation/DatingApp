@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace Dating.Common.Models
+﻿namespace DatingAPI.Common.Models
 {
     public class PageHeader
     {

@@ -1,12 +1,9 @@
-﻿using Dating.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Dating.Common.Models;
-using Dating.DTO;
+﻿using System.Threading.Tasks;
+using DatingAPI.Common.Models;
+using DatingAPI.DTO;
+using DatingAPI.Models;
 
-namespace Dating.Infrastrucutre
+namespace DatingAPI.Infrastrucutre
 {
     public interface IDatingRepository
     {

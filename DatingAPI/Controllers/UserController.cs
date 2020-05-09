@@ -1,16 +1,15 @@
-﻿using AutoMapper;
-using Dating.DTO;
-using Dating.Infrastrucutre;
+﻿using System.Collections.Generic;
+using System.Security.Claims;
+using System.Threading.Tasks;
+using AutoMapper;
+using DatingAPI.Common.Extensions;
+using DatingAPI.DTO;
+using DatingAPI.Infrastrucutre;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using System.Collections.Generic;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using Dating.Common.Extensions;
-using Dating.Common.Models;
 
-namespace Dating.Controllers
+namespace DatingAPI.Controllers
 {
     [Authorize]
     [Route("api/[controller]")]

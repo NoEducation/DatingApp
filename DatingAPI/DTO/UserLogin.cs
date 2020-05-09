@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Dating.DTO
+namespace DatingAPI.DTO
 {
     public class UserLogin
     {

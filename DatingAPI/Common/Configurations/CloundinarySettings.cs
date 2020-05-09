@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace Dating.Common.Configurations
+﻿namespace DatingAPI.Common.Configurations
 {
     public class CloundinarySettings
     {

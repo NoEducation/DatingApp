@@ -1,10 +1,7 @@
-﻿using Dating.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using DatingAPI.Models;
 
-namespace Dating.Infrastrucutre
+namespace DatingAPI.Infrastrucutre
 {
     public interface IAuthRepository
     {

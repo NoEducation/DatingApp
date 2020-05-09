@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Dating.DAT;
-using Dating.Models;
+﻿using System.Threading.Tasks;
+using DatingAPI.DAT;
+using DatingAPI.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace Dating.Infrastrucutre
+namespace DatingAPI.Infrastrucutre
 {
     public class AuthDefaultRepository : IAuthRepository
     {

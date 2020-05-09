@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace Dating.Common.Extensions
+namespace DatingAPI.Common.Extensions
 {
     public static class DateTimeExtenstions
     {

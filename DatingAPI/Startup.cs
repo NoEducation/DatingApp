@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
+﻿using System.Net;
 using System.Text;
 using AutoMapper;
-using Dating.Common.Configurations;
-using Dating.Common.Extensions;
-using Dating.DAT;
-using Dating.Infrastrucutre;
+using DatingAPI.Common.Configurations;
+using DatingAPI.Common.Extensions;
+using DatingAPI.DAT;
+using DatingAPI.Infrastrucutre;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics;
@@ -17,11 +14,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 
-namespace Dating
+namespace DatingAPI
 {
     public class Startup
     {

@@ -1,12 +1,8 @@
-﻿using Microsoft.AspNetCore.Http;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Dating.Common.Models;
+﻿using DatingAPI.Common.Models;
+using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
 
-namespace Dating.Common.Extensions
+namespace DatingAPI.Common.Extensions
 {
     public static class ResponseExtensions
     {

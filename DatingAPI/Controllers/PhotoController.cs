@@ -4,15 +4,15 @@ using System.Threading.Tasks;
 using AutoMapper;
 using CloudinaryDotNet;
 using CloudinaryDotNet.Actions;
-using Dating.Common.Configurations;
-using Dating.DTO;
-using Dating.Infrastrucutre;
+using DatingAPI.Common.Configurations;
+using DatingAPI.DTO;
+using DatingAPI.Infrastrucutre;
+using DatingAPI.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
-using Dating.Models;
 
-namespace Dating.Controllers
+namespace DatingAPI.Controllers
 {
     [Route("api/user/{userId}/photos")]
     [ApiController]
