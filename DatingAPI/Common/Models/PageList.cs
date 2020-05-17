@@ -25,10 +25,10 @@ namespace DatingAPI.Common.Models
         public static async Task<PageList<T>> CreateAsync<T>(IQueryable<T> source, int pageNumber , int pageSize)
         {
             var totalItems = await source.CountAsync();
-            var items = await source.Skip((pageNumber - 1) * (pageSize))
+            var items = await source.Skip((pageNumber - 1) * (pageSize == default(int) ? 10 : pageSize ))
                 .Take(pageSize).ToListAsync();
 
-            return new PageList<T>(items,totalItems,pageNumber,pageSize);
+            return new PageList<T>(items,totalItems,pageNumber, (pageSize == default(int) ? 10 : pageSize));
         }
     }
 }
