@@ -5,6 +5,8 @@ using AutoMapper;
 using DatingAPI.Common.Extensions;
 using DatingAPI.DTO;
 using DatingAPI.Infrastrucutre;
+using DatingCommon.CQRS.Interfaces;
+using DatingLogic.Base;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -16,6 +18,7 @@ namespace DatingAPI.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
+        private readonly IDispacher _dispacher;
         private readonly IDatingRepository _datingRepository;
         private readonly IUsersPdfGenerator _userPdfGenerator;
         private readonly ILogger<UserController> _logger;
@@ -25,12 +28,14 @@ namespace DatingAPI.Controllers
             IDatingRepository datingRepository,
             IUsersPdfGenerator userPdfGenerator,
             ILogger<UserController> logger,
-            IMapper mapper)
+            IMapper mapper,
+            IDispacher dispacher)
         {
             this._datingRepository = datingRepository;
             this._userPdfGenerator = userPdfGenerator;
             this._logger = logger;
             this._mapper = mapper;
+            this._dispacher = dispacher;
         }
 
 
@@ -39,6 +44,8 @@ namespace DatingAPI.Controllers
         {
             var result = await _datingRepository.GetUsers(new UserParams(){PageNumber =  pageNumber, PageSize = pageSize});
             var usersToReturn = _mapper.Map<IEnumerable<UserForListDto>>(result);
+
+            await this._dispacher.HandleAsync(new BaseCommand());
 
             this.Response.AddPagination(result.CurrentPage, result.PageSize, result.TotalItems, result.TotalPages);
 

@@ -25,4 +25,9 @@
     <PackageReference Include="Select.Pdf.NetCore" Version="19.2.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\DatingCommon\DatingCommon.csproj" />
+    <ProjectReference Include="..\DatingLogic\DatingLogic.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -5,6 +5,9 @@ using DatingAPI.Common.Configurations;
 using DatingAPI.Common.Extensions;
 using DatingAPI.DAT;
 using DatingAPI.Infrastrucutre;
+using DatingCommon.CQRS.Extentions;
+using DatingCommon.CQRS.Interfaces;
+using DatingLogic.Base;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics;
@@ -42,6 +45,10 @@ namespace DatingAPI
             services.AddScoped<IUsersPdfGenerator, UsersPdfGenerator>();
             services.AddSingleton<TokenConfiguration>(Configuration.GetTokenConfiguration());
             services.Configure<CloundinarySettings>(Configuration.GetSection("CloudinarySettings"));
+
+            services.AddDispatcherToService();
+
+            services.AddScoped<ICommandHandler<BaseCommand>, BaseCommandHandler>();
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options =>
